@@ -1,0 +1,27 @@
+<h1>Realizar Venda</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="codigo_cliente">Código do Cliente:</label><br>
+  <input type="text" id="codigo_cliente" name="codigo_cliente" required><br><br>
+
+  <label for="nome_peca">Nome da Peça:</label><br>
+  <input type="text" id="nome_peca" name="nome_peca" required><br><br>
+
+  <label for="quantidade">Quantidade:</label><br>
+  <input type="number" id="quantidade" name="quantidade" required><br><br>
+
+  <input type="submit" value="Realizar Venda">
+</form>
+
+{% if mensagem %}
+<p>{{ mensagem }}</p>
+{% endif %}
+
+{% if cliente and nome_peca and quantidade and valor_unitario and valor_total %}
+<h2>Venda Realizada:</h2>
+<p>Cliente: {{ cliente }}</p>
+<p>Peça: {{ nome_peca }}</p>
+<p>Quantidade: {{ quantidade }}</p>
+<p>Valor Unitário: R$ {{ valor_unitario }}</p>
+<p>Valor Total: R$ {{ valor_total }}</p>
+{% endif %}

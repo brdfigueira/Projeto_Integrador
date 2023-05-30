@@ -1,0 +1,17 @@
+<h1>Consultar Estoque de Peças</h1>
+<table>
+  <tr>
+    <th>Peça</th>
+    <th>Quantidade</th>
+    <th>Valor Unitário</th>
+    <th>Valor Total</th>
+  </tr>
+  {% for peca in estoque %}
+  <tr>
+    <td>{{ peca.nome_peca }}</td>
+    <td>{{ peca.quantidade }}</td>
+    <td>R$ {{ peca.valor_unitario }}</td>
+    <td>R$ {{ peca.quantidade * peca.valor_unitario }}</td>
+  </tr>
+  {% endfor %}
+</table>

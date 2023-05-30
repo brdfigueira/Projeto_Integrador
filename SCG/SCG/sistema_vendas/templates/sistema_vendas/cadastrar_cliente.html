@@ -1,0 +1,21 @@
+<h1>Cadastrar Cliente</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="nome">Nome completo:</label><br>
+  <input type="text" id="nome" name="nome" required><br><br>
+
+  <label for="documento_identidade">Documento de Identidade:</label><br>
+  <input type="text" id="documento_identidade" name="documento_identidade" required><br><br>
+
+  <label for="cpf">CPF:</label><br>
+  <input type="text" id="cpf" name="cpf" required><br><br>
+
+  <input type="submit" value="Cadastrar">
+</form>
+
+{% if cliente %}
+<h2>Cliente cadastrado:</h2>
+<p>Nome: {{ cliente.nome }}</p>
+<p>Documento de Identidade: {{ cliente.documento_identidade }}</p>
+<p>CPF: {{ cliente.cpf }}</p>
+{% endif %}
